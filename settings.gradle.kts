@@ -29,7 +29,6 @@ pluginManagement {
         id("io.kotest.multiplatform") version kotestVersion apply false
 
         // open api
-        kotlin("plugin.serialization") version kotlinVersion apply false
         id("org.openapi.generator") version openapiVersion apply false
 
         // spring
@@ -55,3 +54,6 @@ include("mappers-v1")
 include("stubs")
 include("spring")
 include("ktor")
+include("biz")
+include("kafka")
+include("rabbit")
