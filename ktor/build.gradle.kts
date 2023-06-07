@@ -68,6 +68,12 @@ dependencies {
     implementation(project(":lib-logging-logback"))
     implementation(project(":mappers-log"))
     implementation(project(":api-log"))
+
+    implementation(project(":repo-stubs"))
+    implementation(project(":repo-in-memory"))
+    implementation(project(":repo-postgresql"))
+    implementation(project(":repo-cassandra"))
+    implementation(project(":repo-gremlin"))
 }
 
 //tasks {
