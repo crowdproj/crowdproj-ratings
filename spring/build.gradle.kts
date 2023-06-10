@@ -13,7 +13,8 @@ dependencies {
     val serializationVersion: String by project
 
     implementation("org.springframework.boot:spring-boot-starter-actuator") // info; refresh; springMvc output
-    implementation("org.springframework.boot:spring-boot-starter-web") // Controller, Service, etc..
+//    implementation("org.springframework.boot:spring-boot-starter-web") // Controller, Service, etc..
+    implementation("org.springframework.boot:spring-boot-starter-webflux") // Controller, Service, etc..
     implementation("org.springframework.boot:spring-boot-starter-websocket") // Controller, Service, etc..
     implementation("org.springdoc:springdoc-openapi-ui:$springdocOpenapiUiVersion")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // from models to json and Vice versa
@@ -32,8 +33,23 @@ dependencies {
     implementation(project(":api-v1"))
     implementation(project(":mappers-v1"))
 
-    // Stubs
+    // stubs
     implementation(project(":stubs"))
+
+    // biz
+    implementation(project(":biz"))
+
+    // logging
+    implementation(project(":lib-logging-common"))
+    implementation(project(":lib-logging-logback"))
+    implementation(project(":mappers-log"))
+    implementation(project(":api-log"))
+
+    // repository
+    implementation(project(":repo-in-memory"))
+    implementation(project(":repo-postgresql"))
+    implementation(project(":repo-tests"))
+    implementation(project(":repo-stubs"))
 
     // tests
     testImplementation("org.springframework.boot:spring-boot-starter-test")

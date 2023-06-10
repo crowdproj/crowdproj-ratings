@@ -29,7 +29,6 @@ pluginManagement {
         id("io.kotest.multiplatform") version kotestVersion apply false
 
         // open api
-        kotlin("plugin.serialization") version kotlinVersion apply false
         id("org.openapi.generator") version openapiVersion apply false
 
         // spring
@@ -48,10 +47,30 @@ pluginManagement {
     }
 }
 
-include("testing")
+//include("testing")
 include("api-v1")
 include("common")
 include("mappers-v1")
 include("stubs")
 include("spring")
 include("ktor")
+include("biz")
+include("kafka")
+include("rabbit")
+//include("lib-cor")
+include("lib-logging-common")
+include("lib-logging-logback")
+include("lib-logging-kermit")
+include("mappers-log")
+include("api-log")
+
+include("repo-in-memory")
+include("repo-tests")
+include("repo-postgresql")
+include("repo-stubs")
+include("repo-cassandra")
+include("repo-gremlin")
+
+include("auth")
+
+

@@ -1,6 +1,49 @@
 ktor:
+  development: true
+  deployment:
+    port: 8080
+  watch:
+    - classes
+    - resources
   application:
     modules:
       - com.crowdproj.rating.ktor.ApplicationKt.module
-  deployment:
-    port: 8080
+  urls:
+    - "http://127.0.0.1:8080/"
+    - "http://0.0.0.0:8080/"
+    - "http://192.168.0.182:8080/"
+rating:
+  repository:
+    test: "$DB_TYPE_TEST:inmemory"
+    prod: "$DB_TYPE_PROD:psql"
+    cassandra:
+      hosts: localhost
+      keyspace: rating
+      pass: cassandra
+      port: 9042
+      user: cassandra
+    psql:
+      password: postgres
+      schema: rating
+      url: "jdbc:postgresql://localhost:5432/rating"
+      user: postgres
+    gremlin:
+      host: "$DB_GREMLIN_HOST:localhost"
+      user: "$DB_GREMLIN_HOST:root"
+      password: "$DB_GREMLIN_HOST:root_root"
+      port: "$DB_GREMLIN_PORT:8182"
+      enableSsl: false
+
+#jwt:
+#  secret: "secret"
+#  issuer: "com-crowdproj-rating"
+#  audience: "rating-users"
+#  realm: "com-crowdproj-rating"
+#  clientId: "com-crowdproj-rating-service"
+
+jwt:
+  issuer: "http://localhost:8081/auth/realms/com-crowdproj-rating"
+  audience: "rating-users"
+  realm: "com-crowdproj-rating"
+  clientId: "com-crowdproj-rating-service"
+  certUrl: "http://localhost:8081/auth/realms/com-crowdproj-rating/protocol/openid-connect/certs"
